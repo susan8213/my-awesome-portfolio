@@ -8,6 +8,8 @@ import PostCard from "../components/postCard"
 // import "../utils/global.scss"
 import "../utils/normalize.css"
 import "../utils/css/screen.css"
+import CardCarousel from "../components/cardCarousel"
+
 //TODO: switch to staticQuery, get rid of comments, remove unnecessary components, export as draft template
 const BlogIndex = ({ data }, location) => {
   const siteTitle = data.site.siteMetadata.title
@@ -28,7 +30,8 @@ const BlogIndex = ({ data }, location) => {
           </h2>
         </header>
       )}
-      <div className="post-feed">
+      <CardCarousel cards={posts} />
+      {/* <div className="post-feed">
         {posts.map(({ node }) => {
           postCounter++
           return (
@@ -40,7 +43,7 @@ const BlogIndex = ({ data }, location) => {
             />
           )
         })}
-      </div>
+      </div> */}
     </Layout>
   )
 }

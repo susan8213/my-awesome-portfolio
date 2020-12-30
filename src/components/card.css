@@ -1,0 +1,99 @@
+:root {
+  --fs: 1.7vmin;
+  --lh: 1.2;
+  --max-lines: 4;
+}
+
+p {
+  margin: 0;
+}
+
+.card {
+  width: 90vmin;
+  height: 45vmin;
+  display: flex;
+  box-shadow: 0 30px 40px -15px rgba(0, 0, 0, 0.45);
+  background-color: #fff;
+}
+
+.card:hover {
+  vertical-align: middle;
+  -webkit-transform: scale(1.01);
+  transform: scale(1.01);
+  box-shadow: 0 30px 40px -15px rgba(0, 0, 0, 0.45);
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+  -webkit-transition-property: transform;
+}
+
+.card-cover {
+  background-position: center;
+  width: 50%;
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.card__body {
+  padding: 5% 5%;
+  box-sizing: border-box;
+  width: 50%;
+  height: 100%;
+  display: grid;
+  grid-template-rows: 5% 25% 5% auto 5%;
+  align-items: center;
+}
+
+.card__body-theme {
+  font-weight: 700;
+  font-size: 1.5vmin;
+}
+
+.card__body-header {
+  font-weight: 900;
+  font-size: 3vmin;
+  text-transform: capitalize;
+  letter-spacing: 0.01em;
+  line-height: 0.91;
+  margin: 3vmin 0 3.5vmin;
+}
+
+.card__body-date {
+  font-size: 1.5vmin;
+  font-weight: 600;
+  color: grey;
+}
+
+.body-content {
+  max-height: calc(var(--fs) * var(--lh) * var(--max-lines));
+  font-size: var(--fs);
+  line-height: var(--lh);
+  font-weight: var(--max-lines);
+  align-self: center;
+  overflow: hidden;
+}
+
+.card__body-link {
+  color: #ba3428;
+  font-size: 1.8vmin;
+  display: block;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  &:after {
+    content: " →";
+  }
+}
+
+.card__body-link:hover {
+  opacity: 1;
+}
+
+.card__body-link::after {
+  content: " →";
+}
