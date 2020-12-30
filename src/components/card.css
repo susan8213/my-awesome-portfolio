@@ -9,9 +9,10 @@ p {
 }
 
 .card {
-  width: 90vmin;
-  height: 45vmin;
+  width: 45vmin;
+  height: 60vmin;
   display: flex;
+  flex-direction: column;
   box-shadow: 0 30px 40px -15px rgba(0, 0, 0, 0.45);
   background-color: #fff;
 }
@@ -28,8 +29,8 @@ p {
 
 .card-cover {
   background-position: center;
-  width: 50%;
-  height: 100%;
+  width: 100%;
+  height: 60%;
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -37,8 +38,8 @@ p {
 .card__body {
   padding: 5% 5%;
   box-sizing: border-box;
-  width: 50%;
-  height: 100%;
+  width: 100%;
+  height: 40%;
   display: grid;
   grid-template-rows: 5% 25% 5% auto 5%;
   align-items: center;
