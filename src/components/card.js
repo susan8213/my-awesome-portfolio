@@ -10,6 +10,23 @@ const CardHeader = props => {
   return <div className="card-cover" id={image} style={style}></div>
 }
 
+const CardBodyTags = ({ tags }) => {
+  return (
+    <ul className="card__body-tags">
+      {tags &&
+        tags.map((tag, index) => {
+          if (index < 3) {
+            return (
+              <li key={tag} className="card__body-tag">
+                {tag}
+              </li>
+            )
+          }
+        })}
+    </ul>
+  )
+}
+
 const CardBody = props => {
   const { content } = props
 
@@ -17,7 +34,7 @@ const CardBody = props => {
     <div className="card__body">
       <p className="card__body-date">{content.date}</p>
       <h2 className="card__body-header">{content.title}</h2>
-      <p className="card__body-theme">{content.tag}</p>
+      <CardBodyTags tags={content.tags} />
       <p className="body-content">{content.description}</p>
       <Link to={content.slug} className="card__body-link">
         Read more
