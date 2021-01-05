@@ -30,15 +30,16 @@ const CardCarousel = props => {
       className="post-feed"
       additionalTransfrom={0}
       arrows
+      autoPlay
       autoPlaySpeed={3000}
-      centerMode={false}
       draggable
-      focusOnSelect={true}
+      focusOnSelect={false}
       infinite
       itemClass="card carousel"
       minimumTouchDrag={80}
       renderButtonGroupOutside={false}
       renderDotsOutside={false}
+      removeArrowOnDeviceType={["mobile"]}
       responsive={responsive}
     >
       {cards.map(({ node }) => {

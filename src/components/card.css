@@ -10,12 +10,23 @@ p {
 }
 
 .card {
-  width: 45vmin;
-  height: 60vmin;
+  width: 24vw;
+  height: 32vw;
   display: flex;
   flex-direction: column;
   box-shadow: 0 30px 40px -15px rgba(0, 0, 0, 0.45);
   background-color: #fff;
+}
+
+@media all and (orientation: portrait) {
+  .card {
+    width: 90vw;
+    height: 60vw;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 30px 40px -15px rgba(0, 0, 0, 0.45);
+    background-color: #fff;
+  }
 }
 
 .card:hover {

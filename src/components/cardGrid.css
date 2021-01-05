@@ -1,9 +1,14 @@
 .gallery {
   width: 100%;
   display: grid;
-  grid-template-columns: 45vw 45vw;
-  grid-template-columns: repeat(auto-fill, minmax(45vmin, auto));
-  grid-gap: 5vmin;
+  grid-template-columns: repeat(auto-fill, minmax(max(25vw, 300px), auto));
+  grid-gap: 2rem;
   justify-items: center;
   justify-content: center;
+}
+
+@media all and (orientation: portrait) {
+  .gallery {
+    grid-template-columns: repeat(auto-fill, minmax(90vw, auto));
+  }
 }
