@@ -3,6 +3,7 @@ title: Darkness
 date: "2019-05-08"
 thumbnail: ./bbbb.jpg
 description: Darkness cannot drive out darkness; only light can do that. Hate cannot drive out hate; only love can do that.
+tags: ["dark", "darkness", "color", "hihi"]
 ---
 
 ### A wallpaper series using shapes and light by [Jean-Marc Denis](http://jmd.im/black)
