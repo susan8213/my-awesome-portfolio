@@ -48,9 +48,9 @@ const CardCarousel = props => {
           description: node.frontmatter.description,
           date: node.frontmatter.date,
           cover: node.frontmatter.thumbnail?.childImageSharp?.fluid.src,
-          tag: "TAG",
+          tags: node.frontmatter.tags,
         }
-        return <Card content={article} />
+        return <Card key={article.slug} content={article} />
       })}
     </Carousel>
   )

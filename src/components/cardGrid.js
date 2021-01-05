@@ -14,12 +14,11 @@ const CardGrid = props => {
           description: node.frontmatter.description,
           date: node.frontmatter.date,
           cover: node.frontmatter.thumbnail?.childImageSharp?.fluid.src,
-          tag: "TAG",
+          tags: node.frontmatter.tags,
         }
         return (
-          <div className="grid-card">
-            {" "}
-            <Card content={article} />{" "}
+          <div key={article.slug} className="grid-card">
+            <Card key={article.slug} content={article} />
           </div>
         )
       })}
