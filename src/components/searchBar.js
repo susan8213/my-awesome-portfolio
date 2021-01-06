@@ -9,7 +9,16 @@ const SearchBar = ({ setSearchQuery }) => {
   return (
     <div className="row search__bar">
       <div className="col-6">
-        <input type="text" name="search" onChange={onChange} />
+        <input
+          type="text"
+          name="search"
+          onChange={onChange}
+          onKeyDown={e => {
+            if (e.keyCode == 13) {
+              setSearchQuery(searchString)
+            }
+          }}
+        />
       </div>
       <div className="col-2">
         <button
