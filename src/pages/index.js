@@ -9,11 +9,14 @@ import PostCard from "../components/postCard"
 import "../utils/normalize.css"
 import "../utils/css/screen.css"
 import CardCarousel from "../components/cardCarousel"
+import { flattenPost } from "../utils/dataNormalizer"
 
 //TODO: switch to staticQuery, get rid of comments, remove unnecessary components, export as draft template
 const BlogIndex = ({ data }, location) => {
   const siteTitle = data.site.siteMetadata.title
-  const posts = data.allMarkdownRemark.edges
+  const posts = flattenPost(
+    data.allMarkdownRemark.edges.map(({ node }) => node)
+  )
   let postCounter = 0
 
   return (
