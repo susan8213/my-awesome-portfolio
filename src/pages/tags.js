@@ -1,14 +1,15 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import { useFlexSearch } from "react-use-flexsearch"
 import CardGrid from "../components/cardGrid"
 import TagCloud from "../components/tagCloud"
 
-const Tags = ({ data }) => {
+const Tags = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
   const tags = data.allMarkdownRemark.group
 
+  const query = new URLSearchParams(location.search).get("tag")
   const [selected, setSelected] = useState()
   // const searchOptions = {limit: 2, page: true}; // TODO: waiting for react-use-flexsearch "rawResult.map is not a function" bug fixed
   const posts = useFlexSearch(
@@ -16,6 +17,10 @@ const Tags = ({ data }) => {
     data.localSearchTags.index,
     data.localSearchTags.store
   )
+
+  useEffect(() => {
+    setSelected(query || "")
+  }, [query])
 
   return (
     <Layout title={siteTitle}>

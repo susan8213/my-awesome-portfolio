@@ -18,7 +18,7 @@ const CardBodyTags = ({ tags }) => {
           if (index < 3) {
             return (
               <li key={tag} className="card__body-tag">
-                {tag}
+                <Link to={`/tags?tag=${tag}`}>{tag}</Link>
               </li>
             )
           }
