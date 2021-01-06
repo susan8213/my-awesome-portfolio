@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import Img from "gatsby-image"
 
 import Layout from "../components/layout"
@@ -25,6 +25,22 @@ class BlogPostTemplate extends React.Component {
 
           {post.frontmatter.description && (
             <p class="post-content-excerpt">{post.frontmatter.description}</p>
+          )}
+
+          {post.frontmatter.tags && (
+            <div className="post-content-tags">
+              {post.frontmatter.tags.map(tag => {
+                return (
+                  <Link
+                    to={`/tags?tag=${tag}`}
+                    className="post-content-tag"
+                    style={{ textAlign: "center" }}
+                  >
+                    #{tag}
+                  </Link>
+                )
+              })}
+            </div>
           )}
 
           {post.frontmatter.thumbnail && (
@@ -72,6 +88,7 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
+        tags
         thumbnail {
           childImageSharp {
             fluid(maxWidth: 1360) {
