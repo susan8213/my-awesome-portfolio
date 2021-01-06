@@ -1,9 +1,4 @@
-:root {
-  --fs: 1.7vmin;
-  --lh: 1.2;
-  --max-lines: 4;
-  --theme-color: #3eb0ef;
-}
+@import "../utils/css/vars.css";
 
 p {
   margin: 0;
@@ -60,7 +55,7 @@ p {
 
 .card__body-tags {
   font-weight: 700;
-  font-size: 1.5vmin;
+  font-size: 1.3vmin;
   display: inline-flex;
   padding-left: 0;
   margin: 0;
@@ -72,7 +67,7 @@ p {
   padding: 0 0.3rem;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2);
   cursor: pointer;
-  border: 1px solid var(--theme-color);
+  border: 1px solid var(--color-primary);
   border-radius: 0.2rem;
 }
 
@@ -97,6 +92,9 @@ p {
 }
 
 .body-content {
+  --fs: 1.7vmin;
+  --lh: 1.2;
+  --max-lines: 3;
   max-height: calc(var(--fs) * var(--lh) * var(--max-lines));
   font-size: var(--fs);
   line-height: var(--lh);
