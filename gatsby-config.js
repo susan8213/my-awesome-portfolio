@@ -92,6 +92,52 @@ module.exports = {
                 })),
             },
           },
+          {
+            resolve: `gatsby-plugin-local-search`,
+            options: {
+              name: `tags`,
+              engine: `flexsearch`,
+              engineOptions: `speed`,
+              query: `
+                {
+                  allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+                    nodes {
+                      excerpt
+                      fields {
+                        slug
+                      }
+                      frontmatter {
+                        date(formatString: "MMMM DD, YYYY")
+                        title
+                        description
+                        tags
+                        thumbnail {
+                          childImageSharp {
+                            fluid(maxWidth: 1360) {
+                              src
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }`,
+              ref: `slug`,
+              index: ["tags"],
+              store: ["slug", "date", "title", "description", "tags", "cover"],
+              normalizer: ({ data }) =>
+                data.allMarkdownRemark.nodes.map(node => ({
+                  slug: node.fields.slug,
+                  date: node.frontmatter.date,
+                  title: node.frontmatter.title,
+                  description: node.frontmatter.description,
+                  tags: node.frontmatter.tags,
+                  cover:
+                    node.frontmatter.thumbnail &&
+                    node.frontmatter.thumbnail.childImageSharp.fluid.src,
+                })),
+            },
+          },
           `gatsby-remark-prismjs`,
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`,
