@@ -1,4 +1,4 @@
-import React, { useMemo } from "react"
+import React from "react"
 import { Link } from "gatsby"
 import "./card.css"
 
@@ -7,7 +7,11 @@ const CardHeader = props => {
   var style = {
     backgroundImage: "url(" + image + ")",
   }
-  return <div className="card-cover" id={image} style={style}></div>
+  return (
+    <div className="card-cover" id={image} style={style}>
+      <img src={image} style={{ opacity: 0 }} />
+    </div>
+  )
 }
 
 const CardBodyTags = ({ tags }) => {
@@ -32,7 +36,8 @@ const CardBody = props => {
 
   return (
     <div className="card__body">
-      <p className="card__body-date">{content.date}</p>
+      <p className="card__body-date">{`${content.date}・${content.timeToRead ||
+        1} min read`}</p>
       <h2 className="card__body-header">{content.title}</h2>
       <CardBodyTags tags={content.tags} />
       <p className="body-content">{content.description}</p>

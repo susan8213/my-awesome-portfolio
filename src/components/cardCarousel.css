@@ -1,4 +1,13 @@
-.carousel {
+.slide {
   padding: 0;
   margin-right: 1.6vmin;
+}
+
+.post-feed {
+  justify-items: flex-start;
+  align-items: stretch;
+}
+
+.post-feed button {
+  top: 50%;
 }

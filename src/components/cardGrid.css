@@ -4,7 +4,7 @@
   grid-template-columns: repeat(auto-fill, minmax(max(25vw, 300px), auto));
   grid-gap: 2rem;
   justify-items: center;
-  justify-content: center;
+  align-items: stretch;
 }
 
 @media all and (orientation: portrait) {

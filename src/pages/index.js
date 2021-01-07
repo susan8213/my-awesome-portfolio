@@ -59,10 +59,14 @@ const indexQuery = graphql`
         description
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: DESC }
+      limit: 5
+    ) {
       edges {
         node {
-          excerpt
+          excerpt(pruneLength: 100)
+          timeToRead
           fields {
             slug
           }
@@ -73,7 +77,7 @@ const indexQuery = graphql`
             tags
             thumbnail {
               childImageSharp {
-                fluid(maxWidth: 1360) {
+                fluid(maxWidth: 1360, maxHeight: 1020) {
                   ...GatsbyImageSharpFluid
                 }
               }

@@ -49,7 +49,8 @@ export const query = graphql`
     }
     allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
       nodes {
-        excerpt
+        excerpt(pruneLength: 100)
+        timeToRead
         fields {
           slug
         }
@@ -60,7 +61,7 @@ export const query = graphql`
           tags
           thumbnail {
             childImageSharp {
-              fluid(maxWidth: 1360) {
+              fluid(maxWidth: 1360, maxHeight: 1020) {
                 ...GatsbyImageSharpFluid
               }
             }

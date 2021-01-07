@@ -3,7 +3,8 @@ export const flattenPost = nodes => {
     slug: node.fields.slug,
     date: node.frontmatter.date,
     title: node.frontmatter.title,
-    description: node.frontmatter.description,
+    description: node.excerpt || node.frontmatter.description,
+    timeToRead: node.timeToRead,
     tags: node.frontmatter.tags,
     cover:
       node.frontmatter.thumbnail &&
