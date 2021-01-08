@@ -1,8 +1,10 @@
 import React from "react"
 import { Link } from "gatsby"
+import { useSiteMetadata } from "../hooks/useSiteMetadata"
 
 const Layout = props => {
-  const { title, children } = props
+  const { children } = props
+  const { title } = useSiteMetadata()
   const [toggleNav, setToggleNav] = React.useState(false)
   return (
     <div className={`site-wrapper ${toggleNav ? `site-head-open` : ``}`}>
