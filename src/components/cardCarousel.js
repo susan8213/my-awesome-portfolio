@@ -10,8 +10,8 @@ const CardCarousel = props => {
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
-      items: 1,
-      slidesToSlide: 1, // optional, default to 1.
+      items: 3,
+      slidesToSlide: 3, // optional, default to 1.
     },
     tablet: {
       breakpoint: { max: 1024, min: 464 },
@@ -29,17 +29,18 @@ const CardCarousel = props => {
     <Carousel
       className="post-feed"
       additionalTransfrom={0}
-      arrows
-      // autoPlay
-      // autoPlaySpeed={3000}
+      arrows={false}
+      showDots
+      autoPlay
+      autoPlaySpeed={5000}
       draggable
       focusOnSelect={false}
-      // infinite
+      infinite
       itemClass="card slide"
       // minimumTouchDrag={80}
       renderButtonGroupOutside={false}
-      renderDotsOutside={false}
-      removeArrowOnDeviceType={["mobile"]}
+      renderDotsOutside={true}
+      // removeArrowOnDeviceType={["mobile"]}
       responsive={responsive}
     >
       {cards.map(article => {
