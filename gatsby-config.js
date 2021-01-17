@@ -61,7 +61,10 @@ module.exports = {
               engineOptions: `speed`,
               query: `
                 {
-                  allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+                  allMarkdownRemark(
+                    sort: { fields: [frontmatter___date], order: DESC }
+                    filter: { fields: { collection: { eq: "blog" } } }
+                  ) {
                     nodes {
                       excerpt(pruneLength: 100)
                       timeToRead
@@ -108,7 +111,10 @@ module.exports = {
               engineOptions: `speed`,
               query: `
                 {
-                  allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+                  allMarkdownRemark(
+                    sort: { fields: [frontmatter___date], order: DESC }
+                    filter: { fields: { collection: { eq: "blog" } } }
+                  ) {
                     nodes {
                       excerpt(pruneLength: 100)
                       timeToRead
