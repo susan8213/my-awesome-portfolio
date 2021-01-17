@@ -5,6 +5,9 @@ import Img from "gatsby-image"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
+import { defineCustomElements as deckDeckGoHighlightElement } from "@deckdeckgo/highlight-code/dist/loader"
+deckDeckGoHighlightElement()
+
 class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.markdownRemark
