@@ -4,6 +4,7 @@ import SearchBar from "../components/searchBar"
 import Pagination from "../components/Pagination"
 import Layout from "../components/layout"
 import { useSearchBlogPosts } from "../hooks/useSearchBlogPosts"
+import Card from "../components/card"
 
 const Blog = () => {
   const [currentPage, setCurrentPage] = useState(1)
@@ -15,7 +16,7 @@ const Blog = () => {
     <Layout>
       <h1>Blog</h1>
       <SearchBar setSearchQuery={setSearchQuery} />
-      <CardGrid cards={posts} />
+      <CardGrid gridColumnNumber={3} cardComponent={Card} cards={posts} />
       <Pagination
         currentPage={currentPage}
         setCurrentPage={setCurrentPage}

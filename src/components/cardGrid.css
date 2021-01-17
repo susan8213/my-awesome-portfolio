@@ -7,8 +7,16 @@
   align-items: stretch;
 }
 
+.grid-1 {
+  grid-template-columns: 1fr;
+}
+
 @media all and (orientation: portrait) {
   .gallery {
     grid-template-columns: repeat(auto-fill, minmax(90vw, auto));
+  }
+
+  .grid-1 {
+    grid-template-columns: 1fr;
   }
 }

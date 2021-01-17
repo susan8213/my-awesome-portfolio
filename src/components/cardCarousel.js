@@ -1,11 +1,11 @@
 import React from "react"
 import Carousel from "react-multi-carousel"
-import Card from "./card"
 import "react-multi-carousel/lib/styles.css"
 import "./cardCarousel.css"
 
 const CardCarousel = props => {
-  const { cards } = props
+  const { cardComponent, cardClass, cards } = props
+  const Item = cardComponent
 
   const responsive = {
     desktop: {
@@ -36,15 +36,15 @@ const CardCarousel = props => {
       draggable
       focusOnSelect={false}
       infinite
-      itemClass="card slide"
+      itemClass={`${cardClass} slide`}
       // minimumTouchDrag={80}
       renderButtonGroupOutside={false}
-      renderDotsOutside={true}
+      // renderDotsOutside={true}
       // removeArrowOnDeviceType={["mobile"]}
       responsive={responsive}
     >
       {cards.map(article => {
-        return <Card key={article.slug} content={article} />
+        return <Item key={article.slug} content={article} />
       })}
     </Carousel>
   )

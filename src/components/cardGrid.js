@@ -3,16 +3,13 @@ import Card from "./card"
 import "./cardGrid.css"
 
 const CardGrid = props => {
-  const { cards } = props
+  const { girdColumnNumber, cardComponent, cards } = props
+  const Item = cardComponent
 
   return (
-    <div className="gallery">
+    <div className={`gallery grid-${girdColumnNumber}`}>
       {cards.map(article => {
-        return (
-          <div key={article.slug} className="grid-card">
-            <Card key={article.slug} content={article} />
-          </div>
-        )
+        return <Item key={article.slug} content={article} />
       })}
     </div>
   )

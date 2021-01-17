@@ -6,6 +6,7 @@
 .post-feed {
   justify-items: flex-start;
   align-items: stretch;
+  margin-bottom: 3em;
 }
 
 .post-feed button {
