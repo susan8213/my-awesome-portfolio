@@ -1,0 +1,78 @@
+@import "../utils/css/vars.css";
+
+.flatten-card {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  grid-column-gap: 1em;
+  width: 100%;
+  height: 100%;
+  min-height: 30vw;
+  margin-bottom: 1em;
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  box-shadow: 0 30px 40px -15px rgba(0, 0, 0, 0.45);
+}
+
+.flatten-card__cover {
+  background-size: cover;
+  background-position: center;
+}
+
+.flatten-card__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1em;
+}
+
+@media all and (orientation: portrait) {
+  .flatten-card {
+    flex-shrink: 0;
+    grid-template-columns: auto;
+    grid-template-rows: 3fr auto;
+  }
+
+  .flatten-card__cover {
+    min-height: 60vw;
+  }
+}
+
+.flatten-card__content h3 {
+  margin-top: 0;
+}
+
+.flatten-card__content p {
+  margin-bottom: 1em;
+
+  /* font-size: 1.4rem;
+    line-height: 1.6; */
+}
+
+.flatten-card__content__tags {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.flatten-card__content__tag {
+  color: var(--color-primary);
+  margin-right: 1em;
+}
+
+.flatten-card__content__link {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.flatten-card__content__link a svg {
+  width: 1.5em;
+  height: 1.5em;
+  margin-right: 2em;
+  opacity: 0.65;
+}
+
+.flatten-card__content__link a svg:hover,
+.flatten-card__content__link a svg:focus,
+.flatten-card__content__link a svg:active {
+  opacity: 1;
+  transition: all 0.3s ease-out 0s;
+}
