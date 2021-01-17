@@ -47,6 +47,10 @@ body {
 /* Layout
 /* ---------------------------------------------------------- */
 
+section {
+  margin-bottom: 5em;
+}
+
 .site-wrapper {
   padding: 3vw;
   min-height: 100vh;

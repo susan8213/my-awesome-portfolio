@@ -10,13 +10,18 @@ import "../utils/normalize.css"
 import "../utils/css/screen.css"
 import Card from "../components/card"
 import CardCarousel from "../components/cardCarousel"
+import PortfolioCard from "../components/portfolioCard"
+import CardList from "../components/cardList"
+
 import { useLatestBlogPosts } from "../hooks/useLatestBlogPosts"
 import { useSiteMetadata } from "../hooks/useSiteMetadata"
+import { useLatestPortfolio } from "../hooks/useLatestPortfolio"
 
 //TODO: switch to staticQuery, get rid of comments, remove unnecessary components, export as draft template
 const BlogIndex = () => {
   const { description } = useSiteMetadata()
   const posts = useLatestBlogPosts()
+  const projects = useLatestPortfolio()
   let postCounter = 0
 
   return (
@@ -34,8 +39,12 @@ const BlogIndex = () => {
       <section>
         <h1>Blog Posts</h1>
         <CardCarousel cardComponent={Card} cardClass="card" cards={posts} />
-        <div style={{ display: "flex", justifyContent: "center", width: "100%"}}>
-          <Link to="/blog" className="button large col-4 col-12-xsmall">Find more</Link>
+        <div
+          style={{ display: "flex", justifyContent: "center", width: "100%" }}
+        >
+          <Link to="/blog" className="button large col-4 col-12-xsmall">
+            Find more
+          </Link>
         </div>
       </section>
       {/* <div className="post-feed">
@@ -51,6 +60,17 @@ const BlogIndex = () => {
           )
         })}
       </div> */}
+      <section className="row">
+        <h1 className="page-template">Portfolio</h1>
+        <CardList cardComponent={PortfolioCard} cards={projects} />
+        <div
+          style={{ display: "flex", justifyContent: "center", width: "100%" }}
+        >
+          <Link to="/portfolio" className="button large col-4 col-12-xsmall">
+            Find more
+          </Link>
+        </div>
+      </section>
     </Layout>
   )
 }

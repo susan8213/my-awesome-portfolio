@@ -40,6 +40,9 @@ const Layout = props => {
               <li className="nav-elements" role="menuitem">
                 <Link to={`/blog`}>Blog</Link>
               </li>
+              <li className="nav-elements" role="menuitem">
+                <Link to={`/portfolio`}>Portfolio</Link>
+              </li>
             </ul>
           </nav>
           <div className="site-head-center">

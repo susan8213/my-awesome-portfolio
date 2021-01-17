@@ -1,0 +1,12 @@
+.card-list {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 3em;
+}
+
+@media all and (orientation: portrait) {
+  .card-list {
+    flex-direction: row;
+    overflow-x: scroll;
+  }
+}
