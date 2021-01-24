@@ -51,6 +51,10 @@ section {
   margin-bottom: 5em;
 }
 
+section article {
+  padding: 0 8%;
+}
+
 .site-wrapper {
   padding: 3vw;
   min-height: 100vh;

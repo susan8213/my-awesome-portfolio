@@ -17,23 +17,22 @@ function Bio() {
         const { author, social } = data.site.siteMetadata
         return (
           <section>
-            <div
+            <article
               style={{
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "space-around",
-                marginLeft: "10%",
-                marginRight: "10%",
               }}
             >
               <Image
                 fixed={data.avatar.childImageSharp.fixed}
                 alt={author}
+                style={{ flexShrink: "0" }}
                 imgStyle={{
                   borderRadius: `50%`,
                 }}
               />
-              <p>
+              <p style={{ marginLeft: "2em" }}>
                 Written by <strong>{author}</strong> who lives and works in San
                 Francisco building useful things.
                 {` `}
@@ -41,7 +40,7 @@ function Bio() {
                   You should follow him on Twitter
                 </a>
               </p>
-            </div>
+            </article>
           </section>
         )
       }}
