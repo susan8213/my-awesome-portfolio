@@ -6,8 +6,11 @@
  */
 
 import React from "react"
-import { StaticQuery, graphql } from "gatsby"
+import { StaticQuery, graphql, Link } from "gatsby"
 import Image from "gatsby-image"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faFileAlt } from "@fortawesome/free-solid-svg-icons"
+import { faGithub, faLinkedinIn } from "@fortawesome/free-brands-svg-icons"
 
 function Bio() {
   return (
@@ -21,7 +24,7 @@ function Bio() {
               style={{
                 display: "flex",
                 alignItems: "center",
-                justifyContent: "space-around",
+                justifyContent: "flex-start",
               }}
             >
               <Image
@@ -32,14 +35,38 @@ function Bio() {
                   borderRadius: `50%`,
                 }}
               />
-              <p style={{ marginLeft: "2em" }}>
-                Written by <strong>{author}</strong> who lives and works in San
-                Francisco building useful things.
-                {` `}
-                <a href={`https://twitter.com/${social.twitter}`}>
-                  You should follow him on Twitter
-                </a>
-              </p>
+              <div style={{ marginLeft: "2em" }}>
+                <p style={{ display: "inline-block" }}>
+                  <Link to="/about" style={{ paddingRight: `1em` }}>
+                    {author}
+                  </Link>
+                  <a
+                    href="https://github.com"
+                    target="_blank"
+                    title="github"
+                    style={{ color: "black", paddingRight: ".5em" }}
+                  >
+                    <FontAwesomeIcon icon={faGithub} size="1x" />
+                  </a>
+                  <a
+                    href="https://linkedin.com"
+                    target="_blank"
+                    title="linkedin"
+                    style={{ color: "black", paddingRight: ".5em" }}
+                  >
+                    <FontAwesomeIcon icon={faLinkedinIn} size="1x" />
+                  </a>
+                  <a
+                    href="https://linkedin.com"
+                    target="_blank"
+                    title="resume"
+                    style={{ color: "black" }}
+                  >
+                    <FontAwesomeIcon icon={faFileAlt} size="1x" />
+                  </a>
+                </p>
+                <p>Here should be a brief intro of the author</p>
+              </div>
             </article>
           </section>
         )

@@ -64,9 +64,7 @@
 }
 
 .flatten-card__content__link a svg {
-  width: 1.5em;
-  height: 1.5em;
-  margin-right: 2em;
+  margin-right: 1em;
   opacity: 0.65;
 }
 

@@ -1,5 +1,8 @@
 import React from "react"
-import Icon from "./icons/icon"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons"
+import { faGithub } from "@fortawesome/free-brands-svg-icons"
+
 import "./portfolioCard.css"
 
 const PortfolioCard = ({ content }) => {
@@ -20,13 +23,21 @@ const PortfolioCard = ({ content }) => {
         </p>
         <div className="flatten-card__content__link">
           {content?.githubLink && (
-            <a href={content.githubLink} target="_blank">
-              <Icon name="github" />
+            <a
+              href={content.githubLink}
+              target="_blank"
+              style={{ color: "black" }}
+            >
+              <FontAwesomeIcon icon={faGithub} size="2x" />
             </a>
           )}
           {content?.demoLink && (
-            <a href={content.demoLink} target="_blank">
-              <Icon name="external" />
+            <a
+              href={content.demoLink}
+              target="_blank"
+              style={{ color: "black" }}
+            >
+              <FontAwesomeIcon icon={faExternalLinkAlt} size="2x" />
             </a>
           )}
         </div>
