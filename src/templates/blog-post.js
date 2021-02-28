@@ -6,6 +6,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 import { defineCustomElements as deckDeckGoHighlightElement } from "@deckdeckgo/highlight-code/dist/loader"
+import Bio from "../components/bio"
 deckDeckGoHighlightElement()
 
 class BlogPostTemplate extends React.Component {
@@ -45,6 +46,8 @@ class BlogPostTemplate extends React.Component {
               })}
             </div>
           )}
+
+          <Bio />
 
           {post.frontmatter.thumbnail && (
             <div className="post-content-image">
