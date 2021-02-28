@@ -4,6 +4,7 @@ import Img from "gatsby-image"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import { Disqus } from "gatsby-plugin-disqus"
 
 import { defineCustomElements as deckDeckGoHighlightElement } from "@deckdeckgo/highlight-code/dist/loader"
 import Bio from "../components/bio"
@@ -12,6 +13,7 @@ deckDeckGoHighlightElement()
 class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.markdownRemark
+    const slug = post.fields.slug
     const siteTitle = this.props.data.site.siteMetadata.title
 
     return (
@@ -64,6 +66,17 @@ class BlogPostTemplate extends React.Component {
             dangerouslySetInnerHTML={{ __html: post.html }}
           />
 
+          <Disqus
+            config={{
+              /* Replace PAGE_URL with your post's canonical URL variable */
+              url: slug,
+              /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+              identifier: slug,
+              /* Replace PAGE_TITLE with the title of the page */
+              title: post.frontmatter.title,
+            }}
+          />
+
           <footer className="post-content-footer">
             {/* There are two options for how we display the byline/author-info.
         If the post has more than one author, we load a specific template
@@ -90,6 +103,9 @@ export const pageQuery = graphql`
       id
       excerpt(pruneLength: 160)
       html
+      fields {
+        slug
+      }
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")

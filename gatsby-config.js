@@ -282,5 +282,11 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-netlify-cms`,
     `gatsby-plugin-fontawesome-css`,
+    {
+      resolve: `gatsby-plugin-disqus`,
+      options: {
+        shortname: `susan8213-personal-blog`,
+      },
+    },
   ],
 }
