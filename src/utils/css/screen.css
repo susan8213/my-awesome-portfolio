@@ -55,6 +55,11 @@ section article {
   padding: 0 8%;
 }
 
+.avatar {
+  border-radius: 50%;
+  border: 2px double var(--color-border);
+}
+
 .site-wrapper {
   padding: 3vw;
   min-height: 100vh;
@@ -544,6 +549,7 @@ section article {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
+  margin-bottom: 5em;
 }
 
 .post-content-tag {

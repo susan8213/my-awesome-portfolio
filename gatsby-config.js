@@ -4,11 +4,15 @@ const siteConfig = require("./siteConfig")
 module.exports = {
   siteMetadata: {
     title: siteConfig.name,
-    author: siteConfig.author,
     description: siteConfig.description,
+    author: siteConfig.author,
+    authorDescription: siteConfig.authorDescription,
     siteUrl: urljoin(siteConfig.url, siteConfig.prefix),
     social: {
-      twitter: siteConfig.twitter,
+      email: siteConfig.email,
+      github: siteConfig.github,
+      linkedin: siteConfig.linkedin,
+      resume: siteConfig.resume,
     },
   },
   plugins: [

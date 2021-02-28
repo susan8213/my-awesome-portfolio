@@ -6,93 +6,72 @@
  */
 
 import React from "react"
-import { StaticQuery, graphql, Link } from "gatsby"
+import { Link } from "gatsby"
 import Image from "gatsby-image"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faFileAlt } from "@fortawesome/free-solid-svg-icons"
+import { faFileAlt, faEnvelope } from "@fortawesome/free-solid-svg-icons"
 import { faGithub, faLinkedinIn } from "@fortawesome/free-brands-svg-icons"
+import { useAuthorMetadata } from "../hooks/useAuthorMetadata"
 
 function Bio() {
+  const author = useAuthorMetadata()
   return (
-    <StaticQuery
-      query={bioQuery}
-      render={data => {
-        const { author, social } = data.site.siteMetadata
-        return (
-          <section>
-            <article
-              style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "flex-start",
-              }}
+    <section>
+      <article
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <Image
+          fixed={author.avatar}
+          alt={author.name}
+          style={{ flexShrink: "0" }}
+          className="avatar"
+        />
+        <div style={{ marginLeft: "2em" }}>
+          <p style={{ display: "inline-block" }}>
+            <Link to="/about" style={{ paddingRight: `1em` }}>
+              {author.name}
+            </Link>
+            <a
+              href={`mailto:${author.email}?subject=Feedback`}
+              title="email"
+              style={{ color: "black", paddingRight: "1em" }}
             >
-              <Image
-                fixed={data.avatar.childImageSharp.fixed}
-                alt={author}
-                style={{ flexShrink: "0" }}
-                imgStyle={{
-                  borderRadius: `50%`,
-                }}
-              />
-              <div style={{ marginLeft: "2em" }}>
-                <p style={{ display: "inline-block" }}>
-                  <Link to="/about" style={{ paddingRight: `1em` }}>
-                    {author}
-                  </Link>
-                  <a
-                    href="https://github.com"
-                    target="_blank"
-                    title="github"
-                    style={{ color: "black", paddingRight: ".5em" }}
-                  >
-                    <FontAwesomeIcon icon={faGithub} size="1x" />
-                  </a>
-                  <a
-                    href="https://linkedin.com"
-                    target="_blank"
-                    title="linkedin"
-                    style={{ color: "black", paddingRight: ".5em" }}
-                  >
-                    <FontAwesomeIcon icon={faLinkedinIn} size="1x" />
-                  </a>
-                  <a
-                    href="https://linkedin.com"
-                    target="_blank"
-                    title="resume"
-                    style={{ color: "black" }}
-                  >
-                    <FontAwesomeIcon icon={faFileAlt} size="1x" />
-                  </a>
-                </p>
-                <p>Here should be a brief intro of the author</p>
-              </div>
-            </article>
-          </section>
-        )
-      }}
-    />
+              <FontAwesomeIcon icon={faEnvelope} size="1x" />
+            </a>
+            <a
+              href={author.github}
+              target="_blank"
+              title="github"
+              style={{ color: "black", paddingRight: "1em" }}
+            >
+              <FontAwesomeIcon icon={faGithub} size="1x" />
+            </a>
+            <a
+              href={author.linkedin}
+              target="_blank"
+              title="linkedin"
+              style={{ color: "black", paddingRight: "1em" }}
+            >
+              <FontAwesomeIcon icon={faLinkedinIn} size="1x" />
+            </a>
+            <a
+              href={author.resume}
+              target="_blank"
+              title="resume"
+              style={{ color: "black" }}
+            >
+              <FontAwesomeIcon icon={faFileAlt} size="1x" />
+            </a>
+          </p>
+          <p>{author.description}</p>
+        </div>
+      </article>
+    </section>
   )
 }
-
-const bioQuery = graphql`
-  query BioQuery {
-    avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
-      childImageSharp {
-        fixed(width: 50, height: 50) {
-          ...GatsbyImageSharpFixed
-        }
-      }
-    }
-    site {
-      siteMetadata {
-        author
-        social {
-          twitter
-        }
-      }
-    }
-  }
-`
 
 export default Bio
