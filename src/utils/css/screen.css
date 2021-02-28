@@ -55,6 +55,11 @@ section article {
   padding: 0 8%;
 }
 
+section h1 {
+  border-left: 6px solid var(--color-primary);
+  padding-left: 3rem;
+}
+
 .avatar {
   border-radius: 50%;
   border: 2px double var(--color-border);

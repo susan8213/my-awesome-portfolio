@@ -12,9 +12,6 @@ import Card from "../components/card"
 import CardCarousel from "../components/cardCarousel"
 import PortfolioCard from "../components/portfolioCard"
 import CardList from "../components/cardList"
-import Contact from "../components/contact"
-import Skills from "../components/skills"
-import About from "../components/about"
 
 import { useLatestBlogPosts } from "../hooks/useLatestBlogPosts"
 import { useSiteMetadata } from "../hooks/useSiteMetadata"
@@ -25,7 +22,6 @@ const BlogIndex = () => {
   const { description } = useSiteMetadata()
   const posts = useLatestBlogPosts()
   const projects = useLatestPortfolio()
-  let postCounter = 0
 
   return (
     <Layout>
@@ -52,10 +48,6 @@ const BlogIndex = () => {
         </div>
       </section>
 
-      <About />
-
-      <Skills />
-
       <section>
         <h1>Portfolio</h1>
         <CardList cardComponent={PortfolioCard} cards={projects} />
@@ -67,7 +59,6 @@ const BlogIndex = () => {
           </Link>
         </div>
       </section>
-      <Contact />
     </Layout>
   )
 }
