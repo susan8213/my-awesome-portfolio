@@ -1,5 +1,6 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
+import { MDXRenderer } from "gatsby-plugin-mdx"
 import Img from "gatsby-image"
 
 import Layout from "../components/layout"
@@ -12,7 +13,7 @@ deckDeckGoHighlightElement()
 
 class BlogPostTemplate extends React.Component {
   render() {
-    const post = this.props.data.markdownRemark
+    const post = this.props.data.mdx
     const slug = post.fields.slug
     const siteTitle = this.props.data.site.siteMetadata.title
 
@@ -61,10 +62,9 @@ class BlogPostTemplate extends React.Component {
             </div>
           )}
 
-          <div
-            className="post-content-body"
-            dangerouslySetInnerHTML={{ __html: post.html }}
-          />
+          <div className="post-content-body">
+            <MDXRenderer className="post-content-body">{post.body}</MDXRenderer>
+          </div>
 
           <Disqus
             config={{
@@ -99,10 +99,10 @@ export const pageQuery = graphql`
         author
       }
     }
-    markdownRemark(fields: { slug: { eq: $slug } }) {
+    mdx(fields: { slug: { eq: $slug } }) {
       id
       excerpt(pruneLength: 160)
-      html
+      body
       fields {
         slug
       }

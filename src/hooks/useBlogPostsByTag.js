@@ -2,14 +2,14 @@ import { useStaticQuery, graphql } from "gatsby"
 import { useFlexSearch } from "react-use-flexsearch"
 
 export const useBlogPostsByTags = tag => {
-  const { localSearchTags, allMarkdownRemark } = useStaticQuery(
+  const { localSearchTags, allMdx } = useStaticQuery(
     graphql`
       query BlogPostsByTag {
         localSearchTags {
           store
           index
         }
-        allMarkdownRemark(
+        allMdx(
           sort: { fields: [frontmatter___date], order: DESC }
           filter: { fields: { collection: { eq: "blog" } } }
         ) {
@@ -22,7 +22,7 @@ export const useBlogPostsByTags = tag => {
     `
   )
 
-  const tags = allMarkdownRemark.group
+  const tags = allMdx.group
   // const searchOptions = {limit: 2, page: true}; // TODO: waiting for react-use-flexsearch "rawResult.map is not a function" bug fixed
   const posts = useFlexSearch(tag, localSearchTags.index, localSearchTags.store)
   return { tags, posts }

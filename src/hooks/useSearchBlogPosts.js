@@ -3,14 +3,14 @@ import { useFlexSearch } from "react-use-flexsearch"
 import { flattenPost } from "../utils/dataNormalizer"
 
 export const useSearchBlogPosts = searchQuery => {
-  const { localSearchBlog, allMarkdownRemark } = useStaticQuery(
+  const { localSearchBlog, allMdx } = useStaticQuery(
     graphql`
       query SearchBlogPost {
         localSearchBlog {
           store
           index
         }
-        allMarkdownRemark(
+        allMdx(
           sort: { fields: [frontmatter___date], order: DESC }
           filter: { fields: { collection: { eq: "blog" } } }
         ) {
@@ -49,6 +49,6 @@ export const useSearchBlogPosts = searchQuery => {
   )
   const posts = searchQuery
     ? searchResults
-    : flattenPost(allMarkdownRemark.edges.map(({ node }) => node))
+    : flattenPost(allMdx.edges.map(({ node }) => node))
   return posts
 }

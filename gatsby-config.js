@@ -38,9 +38,10 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-transformer-remark`,
+      resolve: `gatsby-plugin-mdx`,
       options: {
-        plugins: [
+        extensions: [`.md`, `.mdx`],
+        gatsbyRemarkPlugins: [
           {
             resolve: `gatsby-remark-highlight-code`,
             options: {
@@ -65,171 +66,171 @@ module.exports = {
               wrapperStyle: `margin-bottom: 1.0725rem`,
             },
           },
-          {
-            resolve: `gatsby-plugin-local-search`,
-            options: {
-              name: `blog`,
-              engine: `flexsearch`,
-              engineOptions: `speed`,
-              query: `
-                {
-                  allMarkdownRemark(
-                    sort: { fields: [frontmatter___date], order: DESC }
-                    filter: { fields: { collection: { eq: "blog" } } }
-                  ) {
-                    nodes {
-                      excerpt(pruneLength: 100)
-                      timeToRead
-                      fields {
-                        slug
-                      }
-                      frontmatter {
-                        date(formatString: "MMMM DD, YYYY")
-                        title
-                        description
-                        tags
-                        thumbnail {
-                          childImageSharp {
-                            fluid(maxWidth: 1360, maxHeight: 1020) {
-                              src
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }`,
-              ref: `slug`,
-              index: ["title", "description", "tags"],
-              store: ["slug", "date", "title", "description", "tags", "cover"],
-              normalizer: ({ data }) =>
-                data.allMarkdownRemark.nodes.map(node => ({
-                  slug: node.fields.slug,
-                  date: node.frontmatter.date,
-                  title: node.frontmatter.title,
-                  description: node.frontmatter.description,
-                  tags: node.frontmatter.tags,
-                  cover:
-                    node.frontmatter.thumbnail &&
-                    node.frontmatter.thumbnail.childImageSharp.fluid.src,
-                })),
-            },
-          },
-          {
-            resolve: `gatsby-plugin-local-search`,
-            options: {
-              name: `tags`,
-              engine: `flexsearch`,
-              engineOptions: `speed`,
-              query: `
-                {
-                  allMarkdownRemark(
-                    sort: { fields: [frontmatter___date], order: DESC }
-                    filter: { fields: { collection: { eq: "blog" } } }
-                  ) {
-                    nodes {
-                      excerpt(pruneLength: 100)
-                      timeToRead
-                      fields {
-                        slug
-                      }
-                      frontmatter {
-                        date(formatString: "MMMM DD, YYYY")
-                        title
-                        description
-                        tags
-                        thumbnail {
-                          childImageSharp {
-                            fluid(maxWidth: 1360, maxHeight: 1020) {
-                              src
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }`,
-              ref: `slug`,
-              index: ["tags"],
-              store: ["slug", "date", "title", "description", "tags", "cover"],
-              normalizer: ({ data }) =>
-                data.allMarkdownRemark.nodes.map(node => ({
-                  slug: node.fields.slug,
-                  date: node.frontmatter.date,
-                  title: node.frontmatter.title,
-                  description: node.frontmatter.description,
-                  tags: node.frontmatter.tags,
-                  cover:
-                    node.frontmatter.thumbnail &&
-                    node.frontmatter.thumbnail.childImageSharp.fluid.src,
-                })),
-            },
-          },
-          {
-            resolve: `gatsby-plugin-local-search`,
-            options: {
-              name: `portfolio`,
-              engine: `flexsearch`,
-              engineOptions: `speed`,
-              query: `
-                {
-                  allMarkdownRemark(
-                    sort: { fields: [frontmatter___date], order: DESC }
-                    filter: { fields: { collection: { eq: "portfolio" } } }
-                  ) {
-                    nodes {
-                      fields {
-                        slug
-                      }
-                      frontmatter {
-                        date(formatString: "MMMM DD, YYYY")
-                        title
-                        description
-                        tags
-                        github
-                        demo
-                        thumbnail {
-                          childImageSharp {
-                            fluid(maxWidth: 1360, maxHeight: 1020) {
-                              src
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }`,
-              ref: `slug`,
-              index: ["title", "description", "tags"],
-              store: [
-                "slug",
-                "date",
-                "title",
-                "description",
-                "tags",
-                "githubLink",
-                "demoLink",
-                "cover",
-              ],
-              normalizer: ({ data }) =>
-                data.allMarkdownRemark.nodes.map(node => ({
-                  slug: node.fields.slug,
-                  date: node.frontmatter.date,
-                  title: node.frontmatter.title,
-                  description: node.frontmatter.description,
-                  tags: node.frontmatter.tags,
-                  githubLink: node.frontmatter.github,
-                  demoLink: node.frontmatter.demo,
-                  cover:
-                    node.frontmatter.thumbnail &&
-                    node.frontmatter.thumbnail.childImageSharp.fluid.src,
-                })),
-            },
-          },
           `gatsby-remark-prismjs`,
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`,
         ],
+      },
+    },
+    {
+      resolve: `gatsby-plugin-local-search`,
+      options: {
+        name: `blog`,
+        engine: `flexsearch`,
+        engineOptions: `speed`,
+        query: `
+          {
+            allMdx(
+              sort: { fields: [frontmatter___date], order: DESC }
+              filter: { fields: { collection: { eq: "blog" } } }
+            ) {
+              nodes {
+                excerpt(pruneLength: 100)
+                timeToRead
+                fields {
+                  slug
+                }
+                frontmatter {
+                  date(formatString: "MMMM DD, YYYY")
+                  title
+                  description
+                  tags
+                  thumbnail {
+                    childImageSharp {
+                      fluid(maxWidth: 1360, maxHeight: 1020) {
+                        src
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }`,
+        ref: `slug`,
+        index: ["title", "description", "tags"],
+        store: ["slug", "date", "title", "description", "tags", "cover"],
+        normalizer: ({ data }) =>
+          data.allMdx.nodes.map(node => ({
+            slug: node.fields.slug,
+            date: node.frontmatter.date,
+            title: node.frontmatter.title,
+            description: node.frontmatter.description,
+            tags: node.frontmatter.tags,
+            cover:
+              node.frontmatter.thumbnail &&
+              node.frontmatter.thumbnail.childImageSharp.fluid.src,
+          })),
+      },
+    },
+    {
+      resolve: `gatsby-plugin-local-search`,
+      options: {
+        name: `tags`,
+        engine: `flexsearch`,
+        engineOptions: `speed`,
+        query: `
+          {
+            allMdx(
+              sort: { fields: [frontmatter___date], order: DESC }
+              filter: { fields: { collection: { eq: "blog" } } }
+            ) {
+              nodes {
+                excerpt(pruneLength: 100)
+                timeToRead
+                fields {
+                  slug
+                }
+                frontmatter {
+                  date(formatString: "MMMM DD, YYYY")
+                  title
+                  description
+                  tags
+                  thumbnail {
+                    childImageSharp {
+                      fluid(maxWidth: 1360, maxHeight: 1020) {
+                        src
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }`,
+        ref: `slug`,
+        index: ["tags"],
+        store: ["slug", "date", "title", "description", "tags", "cover"],
+        normalizer: ({ data }) =>
+          data.allMdx.nodes.map(node => ({
+            slug: node.fields.slug,
+            date: node.frontmatter.date,
+            title: node.frontmatter.title,
+            description: node.frontmatter.description,
+            tags: node.frontmatter.tags,
+            cover:
+              node.frontmatter.thumbnail &&
+              node.frontmatter.thumbnail.childImageSharp.fluid.src,
+          })),
+      },
+    },
+    {
+      resolve: `gatsby-plugin-local-search`,
+      options: {
+        name: `portfolio`,
+        engine: `flexsearch`,
+        engineOptions: `speed`,
+        query: `
+          {
+            allMdx(
+              sort: { fields: [frontmatter___date], order: DESC }
+              filter: { fields: { collection: { eq: "portfolio" } } }
+            ) {
+              nodes {
+                fields {
+                  slug
+                }
+                frontmatter {
+                  date(formatString: "MMMM DD, YYYY")
+                  title
+                  description
+                  tags
+                  github
+                  demo
+                  thumbnail {
+                    childImageSharp {
+                      fluid(maxWidth: 1360, maxHeight: 1020) {
+                        src
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }`,
+        ref: `slug`,
+        index: ["title", "description", "tags"],
+        store: [
+          "slug",
+          "date",
+          "title",
+          "description",
+          "tags",
+          "githubLink",
+          "demoLink",
+          "cover",
+        ],
+        normalizer: ({ data }) =>
+          data.allMdx.nodes.map(node => ({
+            slug: node.fields.slug,
+            date: node.frontmatter.date,
+            title: node.frontmatter.title,
+            description: node.frontmatter.description,
+            tags: node.frontmatter.tags,
+            githubLink: node.frontmatter.github,
+            demoLink: node.frontmatter.demo,
+            cover:
+              node.frontmatter.thumbnail &&
+              node.frontmatter.thumbnail.childImageSharp.fluid.src,
+          })),
       },
     },
     `gatsby-transformer-sharp`,

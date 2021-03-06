@@ -2,10 +2,10 @@ import { useStaticQuery, graphql } from "gatsby"
 import { flattenProject } from "../utils/dataNormalizer"
 
 export const useLatestPortfolio = () => {
-  const { allMarkdownRemark } = useStaticQuery(
+  const { allMdx } = useStaticQuery(
     graphql`
       query LatestPorfolio {
-        allMarkdownRemark(
+        allMdx(
           sort: { fields: [frontmatter___date], order: DESC }
           filter: { fields: { collection: { eq: "portfolio" } } }
           limit: 3
@@ -36,5 +36,5 @@ export const useLatestPortfolio = () => {
       }
     `
   )
-  return flattenProject(allMarkdownRemark.edges.map(({ node }) => node))
+  return flattenProject(allMdx.edges.map(({ node }) => node))
 }

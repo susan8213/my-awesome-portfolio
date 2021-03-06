@@ -2,10 +2,10 @@ import { useStaticQuery, graphql } from "gatsby"
 import { flattenPost } from "../utils/dataNormalizer"
 
 export const useLatestBlogPosts = () => {
-  const { allMarkdownRemark } = useStaticQuery(
+  const { allMdx } = useStaticQuery(
     graphql`
       query LatestBlogPosts {
-        allMarkdownRemark(
+        allMdx(
           sort: { fields: [frontmatter___date], order: DESC }
           filter: { fields: { collection: { eq: "blog" } } }
           limit: 5
@@ -36,5 +36,5 @@ export const useLatestBlogPosts = () => {
       }
     `
   )
-  return flattenPost(allMarkdownRemark.edges.map(({ node }) => node))
+  return flattenPost(allMdx.edges.map(({ node }) => node))
 }

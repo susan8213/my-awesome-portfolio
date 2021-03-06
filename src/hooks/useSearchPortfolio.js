@@ -3,14 +3,14 @@ import { useFlexSearch } from "react-use-flexsearch"
 import { flattenPost, flattenProject } from "../utils/dataNormalizer"
 
 export const useSearchPortfolio = searchQuery => {
-  const { localSearchPortfolio, allMarkdownRemark } = useStaticQuery(
+  const { localSearchPortfolio, allMdx } = useStaticQuery(
     graphql`
       query SearchPortfolio {
         localSearchPortfolio {
           store
           index
         }
-        allMarkdownRemark(
+        allMdx(
           sort: { fields: [frontmatter___date], order: DESC }
           filter: { fields: { collection: { eq: "portfolio" } } }
         ) {
@@ -49,6 +49,6 @@ export const useSearchPortfolio = searchQuery => {
   )
   const posts = searchQuery
     ? searchResults
-    : flattenProject(allMarkdownRemark.edges.map(({ node }) => node))
+    : flattenProject(allMdx.edges.map(({ node }) => node))
   return posts
 }
