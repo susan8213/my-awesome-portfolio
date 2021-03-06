@@ -1,9 +1,5 @@
 @import "../utils/css/vars.css";
 
-p {
-  margin: 0;
-}
-
 .card {
   width: 24vw;
   height: 100%;

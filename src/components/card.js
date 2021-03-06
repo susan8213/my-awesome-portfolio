@@ -51,10 +51,10 @@ const CardBody = props => {
 const Card = props => {
   const { content } = props
   return (
-    <article className="card">
+    <div className="card">
       <CardHeader image={content.cover} />
       <CardBody content={content} />
-    </article>
+    </div>
   )
 }
 
