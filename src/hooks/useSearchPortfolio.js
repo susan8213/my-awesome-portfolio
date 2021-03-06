@@ -1,6 +1,6 @@
 import { useStaticQuery, graphql } from "gatsby"
 import { useFlexSearch } from "react-use-flexsearch"
-import { flattenPost, flattenProject } from "../utils/dataNormalizer"
+import { flattenProject } from "../utils/dataNormalizer"
 
 export const useSearchPortfolio = searchQuery => {
   const { localSearchPortfolio, allMdx } = useStaticQuery(
@@ -28,9 +28,7 @@ export const useSearchPortfolio = searchQuery => {
                 demo
                 thumbnail {
                   childImageSharp {
-                    fluid(maxWidth: 1360, maxHeight: 1020) {
-                      ...GatsbyImageSharpFluid
-                    }
+                    id
                   }
                 }
               }

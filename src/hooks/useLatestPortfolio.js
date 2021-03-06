@@ -24,9 +24,7 @@ export const useLatestPortfolio = () => {
                 demo
                 thumbnail {
                   childImageSharp {
-                    fluid(maxWidth: 1360, maxHeight: 1020) {
-                      ...GatsbyImageSharpFluid
-                    }
+                    id
                   }
                 }
               }

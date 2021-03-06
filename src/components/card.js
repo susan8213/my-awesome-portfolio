@@ -1,31 +1,23 @@
 import React from "react"
 import { Link } from "gatsby"
+import Image from "./image"
 import "./card.css"
 
 const CardHeader = props => {
   const { image } = props
-  var style = {
-    backgroundImage: "url(" + image + ")",
-  }
-  return (
-    <div className="card-cover" id={image} style={style}>
-      <img src={image} style={{ opacity: 0 }} />
-    </div>
-  )
+  return <Image src={image} className="card-covers" />
 }
 
 const CardBodyTags = ({ tags }) => {
   return (
     <ul className="card__body-tags">
       {tags &&
-        tags.map((tag, index) => {
-          if (index < 3) {
-            return (
-              <li key={tag} className="card__body-tag">
-                <Link to={`/tags?tag=${tag}`}>{tag}</Link>
-              </li>
-            )
-          }
+        tags.slice(0, 3).map((tag, index) => {
+          return (
+            <li key={index} className="card__body-tag">
+              <Link to={`/tags?tag=${tag}`}>{tag}</Link>
+            </li>
+          )
         })}
     </ul>
   )

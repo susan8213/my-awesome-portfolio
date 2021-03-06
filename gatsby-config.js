@@ -97,9 +97,7 @@ module.exports = {
                   tags
                   thumbnail {
                     childImageSharp {
-                      fluid(maxWidth: 1360, maxHeight: 1020) {
-                        src
-                      }
+                      id
                     }
                   }
                 }
@@ -114,11 +112,11 @@ module.exports = {
             slug: node.fields.slug,
             date: node.frontmatter.date,
             title: node.frontmatter.title,
-            description: node.frontmatter.description,
+            description: node.frontmatter.description || node.excerpt,
             tags: node.frontmatter.tags,
             cover:
               node.frontmatter.thumbnail &&
-              node.frontmatter.thumbnail.childImageSharp.fluid.src,
+              node.frontmatter.thumbnail.childImageSharp.id,
           })),
       },
     },
@@ -147,9 +145,7 @@ module.exports = {
                   tags
                   thumbnail {
                     childImageSharp {
-                      fluid(maxWidth: 1360, maxHeight: 1020) {
-                        src
-                      }
+                      id
                     }
                   }
                 }
@@ -164,11 +160,11 @@ module.exports = {
             slug: node.fields.slug,
             date: node.frontmatter.date,
             title: node.frontmatter.title,
-            description: node.frontmatter.description,
+            description: node.frontmatter.description || node.excerpt,
             tags: node.frontmatter.tags,
             cover:
               node.frontmatter.thumbnail &&
-              node.frontmatter.thumbnail.childImageSharp.fluid.src,
+              node.frontmatter.thumbnail.childImageSharp.id,
           })),
       },
     },
@@ -197,9 +193,7 @@ module.exports = {
                   demo
                   thumbnail {
                     childImageSharp {
-                      fluid(maxWidth: 1360, maxHeight: 1020) {
-                        src
-                      }
+                      id
                     }
                   }
                 }
@@ -223,13 +217,13 @@ module.exports = {
             slug: node.fields.slug,
             date: node.frontmatter.date,
             title: node.frontmatter.title,
-            description: node.frontmatter.description,
+            description: node.frontmatter.description || node.excerpt,
             tags: node.frontmatter.tags,
             githubLink: node.frontmatter.github,
             demoLink: node.frontmatter.demo,
             cover:
               node.frontmatter.thumbnail &&
-              node.frontmatter.thumbnail.childImageSharp.fluid.src,
+              node.frontmatter.thumbnail.childImageSharp.id,
           })),
       },
     },
