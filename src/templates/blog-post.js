@@ -36,9 +36,10 @@ class BlogPostTemplate extends React.Component {
 
           {post.frontmatter.tags && (
             <div className="post-content-tags">
-              {post.frontmatter.tags.map(tag => {
+              {post.frontmatter.tags.map((tag, index) => {
                 return (
                   <Link
+                    key={index}
                     to={`/tags?tag=${tag}`}
                     className="post-content-tag"
                     style={{ textAlign: "center" }}

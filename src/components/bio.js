@@ -45,6 +45,7 @@ function Bio() {
             <a
               href={author.github}
               target="_blank"
+              rel="noreferrer"
               title="github"
               style={{ color: "black", paddingRight: "1em" }}
             >
@@ -53,6 +54,7 @@ function Bio() {
             <a
               href={author.linkedin}
               target="_blank"
+              rel="noreferrer"
               title="linkedin"
               style={{ color: "black", paddingRight: "1em" }}
             >
@@ -61,6 +63,7 @@ function Bio() {
             <a
               href={author.resume}
               target="_blank"
+              rel="noreferrer"
               title="resume"
               style={{ color: "black" }}
             >

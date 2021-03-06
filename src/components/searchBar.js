@@ -14,7 +14,7 @@ const SearchBar = ({ setSearchQuery }) => {
           name="search"
           onChange={onChange}
           onKeyDown={e => {
-            if (e.keyCode == 13) {
+            if (e.keyCode === 13) {
               setSearchQuery(searchString)
             }
           }}

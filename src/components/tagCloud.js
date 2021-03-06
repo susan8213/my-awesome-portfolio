@@ -16,9 +16,10 @@ const TagCloud = ({ tags, selected, setSelected }) => {
         marginBottom: "5rem",
       }}
     >
-      {tags.map(tag => {
+      {tags.map((tag, index) => {
         return (
           <button
+            key={index}
             onClick={onSelect}
             value={tag.tag}
             className={`button small ${tag.tag === selected ? "primary" : ""}`}
