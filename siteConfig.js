@@ -2,7 +2,7 @@ module.exports = {
   name: "Joellyn",
   shortName: "Joellyn",
   description: "Let your gentleness mutually treat by the world.",
-  url: "https://susan8213.netlify.app/", // Domain of your site without prefix!
+  url: "https://susan8213.netlify.app", // Domain of your site without prefix!
   prefix: "/",
   author: "Ying Hsiu Lai",
   authorDescription:
