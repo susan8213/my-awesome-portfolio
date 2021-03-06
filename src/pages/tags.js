@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react"
 import Layout from "../components/layout"
+import Card from "../components/card"
 import CardGrid from "../components/cardGrid"
 import TagCloud from "../components/tagCloud"
 import { useBlogPostsByTags } from "../hooks/useBlogPostsByTag"
@@ -17,7 +18,7 @@ const Tags = ({ location }) => {
     <Layout>
       <h1>Tags</h1>
       <TagCloud tags={tags} selected={selected} setSelected={setSelected} />
-      <CardGrid cards={posts} />
+      <CardGrid gridColumnNumber={3} cardComponent={Card} cards={posts} />
     </Layout>
   )
 }
