@@ -9,20 +9,28 @@ import { Disqus } from "gatsby-plugin-disqus"
 
 import { defineCustomElements as deckDeckGoHighlightElement } from "@deckdeckgo/highlight-code/dist/loader"
 import Bio from "../components/bio"
+import TableOfContents from "../components/TableOfContents"
+import { useMediaQuery } from "react-responsive"
 deckDeckGoHighlightElement()
 
-class BlogPostTemplate extends React.Component {
-  render() {
-    const post = this.props.data.mdx
-    const slug = post.fields.slug
-    const siteTitle = this.props.data.site.siteMetadata.title
+const BlogPostTemplate = ({ location, data }) => {
+  const post = data.mdx
+  const slug = post.fields.slug
+  const siteTitle = data.site.siteMetadata.title
+  const isDesktop = useMediaQuery({ query: "(min-width: 1280px)" })
 
-    return (
-      <Layout location={this.props.location} title={siteTitle}>
-        <SEO
-          title={post.frontmatter.title}
-          description={post.frontmatter.description || post.excerpt}
-        />
+  return (
+    <Layout location={location} title={siteTitle}>
+      <SEO
+        title={post.frontmatter.title}
+        description={post.frontmatter.description || post.excerpt}
+      />
+
+      <div>
+        {isDesktop && post.tableOfContents.items && (
+          <TableOfContents items={post.tableOfContents.items} />
+        )}
+
         <article
           className={`post-content ${post.frontmatter.thumbnail || `no-image`}`}
         >
@@ -31,8 +39,14 @@ class BlogPostTemplate extends React.Component {
           </header>
 
           {post.frontmatter.description && (
-            <p class="post-content-excerpt">{post.frontmatter.description}</p>
+            <p className="post-content-excerpt">
+              {post.frontmatter.description}
+            </p>
           )}
+
+          <p style={{ textAlign: "center" }}>{`${
+            post.frontmatter.date
+          }・${post.timeToRead || 1} min read`}</p>
 
           {post.frontmatter.tags && (
             <div className="post-content-tags">
@@ -64,7 +78,7 @@ class BlogPostTemplate extends React.Component {
           )}
 
           <div className="post-content-body">
-            <MDXRenderer className="post-content-body">{post.body}</MDXRenderer>
+            <MDXRenderer>{post.body}</MDXRenderer>
           </div>
 
           <Disqus
@@ -85,9 +99,9 @@ class BlogPostTemplate extends React.Component {
         default byline. */}
           </footer>
         </article>
-      </Layout>
-    )
-  }
+      </div>
+    </Layout>
+  )
 }
 
 export default BlogPostTemplate
@@ -104,6 +118,8 @@ export const pageQuery = graphql`
       id
       excerpt(pruneLength: 160)
       body
+      timeToRead
+      tableOfContents(maxDepth: 3)
       fields {
         slug
       }

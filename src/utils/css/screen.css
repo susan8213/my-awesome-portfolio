@@ -549,6 +549,80 @@ section h1 {
   }
 }
 
+.post-content-toc {
+  position: fixed;
+  right: 0px;
+  top: 10vh;
+  max-height: 30vh;
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  padding: 0.75rem;
+  margin: 0.75rem 0px;
+  z-index: 999;
+  background-color: var(--color-bg);
+  box-shadow: 0 30px 40px -15px rgba(0, 0, 0, 0.45);
+  border: 2px solid var(--color-primary);
+  border-right: none;
+  border-radius: 0.25rem;
+}
+
+.post-content-toc-content {
+  overflow: hidden;
+  overflow-y: scroll;
+}
+
+.post-content-toc header {
+  font-weight: var(--font-heavy);
+  font-size: 1.5em;
+  margin-bottom: var(--margin);
+}
+
+.post-content-toc-content ul,
+.post-content-toc-content ol {
+  list-style-type: none;
+}
+
+.post-content-toc-content > ul,
+.post-content-toc-content > ol {
+  padding-left: 0;
+}
+
+.post-content-toc-content a {
+  color: var(--color-base);
+}
+
+.post-content-toc-content a:hover {
+  border-left: 3px solid var(--color-primary);
+  padding-left: 1rem;
+  color: var(--color-primary);
+}
+
+/* scrollbar: Works on Firefox */
+.post-content-toc-content {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-primary) var(--color-border);
+}
+
+/* scrollbar: Works on Chrome, Edge, and Safari */
+
+.post-content-toc-content::-webkit-scrollbar,
+div.card-list::-webkit-scrollbar {
+  width: 12px;
+}
+
+.post-content-toc-content::-webkit-scrollbar-track,
+div.card-list::-webkit-scrollbar-track {
+  background: var(--color-border);
+}
+
+.post-content-toc-content::-webkit-scrollbar-thumb,
+div.card-list::-webkit-scrollbar-thumb {
+  background-color: var(--color-primary);
+  border-radius: 20px;
+  border: 3px solid var(--color-border);
+}
+
 .post-content-tags {
   display: flex;
   flex-direction: row;

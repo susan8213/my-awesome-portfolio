@@ -2,20 +2,31 @@
 /* ---------------------------------------------------------- */
 
 .transition-fade {
-    transition: 0.25s;
-    opacity: 1;
-    animation: slideUp 0.9s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
-    transform: translate3d(0, 4vh, 0);
+  animation: slideUp 0.9s normal cubic-bezier(0.075, 0.82, 0.165, 1);
 }
-html.is-animating .transition-fade {
+
+@-webkit-keyframes slideUp {
+  0% {
     opacity: 0;
+    -webkit-transform: translate3d(0, 4vh, 0);
+    transform: translate3d(0, 4vh, 0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 4vh, 0);
+    transform: translate3d(0, 0, 0);
+  }
 }
 
 @keyframes slideUp {
   0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 4vh, 0);
     transform: translate3d(0, 4vh, 0);
   }
   100% {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 4vh, 0);
     transform: translate3d(0, 0, 0);
   }
 }
