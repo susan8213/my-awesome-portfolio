@@ -694,17 +694,16 @@ div.card-list::-webkit-scrollbar-thumb {
   margin-bottom: 0;
 }
 
-.post-content-body code {
+.post-content-body p code {
   padding: 0 5px 2px;
   font-size: 0.8em;
   line-height: 1em;
   font-weight: 400 !important;
   background: var(--color-bg);
   border-radius: 3px;
-}
-
-.post-content-body p code {
   word-break: break-all;
+  border: 1px solid var(--color-border);
+  color: var(--color-inline-code);
 }
 
 .post-content-body pre {
