@@ -243,6 +243,15 @@ section h1 {
   align-items: center;
 }
 
+.social-icon-links {
+  color: var(--color-base);
+  padding-right: 1em;
+}
+
+.social-icon-links:hover {
+  color: var(--color-primary);
+}
+
 .subscribe-button {
   display: block;
   padding: 4px 10px;

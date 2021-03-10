@@ -36,36 +36,36 @@ function Bio() {
               {author.name}
             </Link>
             <a
-              href={`mailto:${author.email}?subject=Feedback`}
+              className="social-icon-links"
+              href={`mailto:${author.email}`}
               title="email"
-              style={{ color: "black", paddingRight: "1em" }}
             >
               <FontAwesomeIcon icon={faEnvelope} size="1x" />
             </a>
             <a
+              className="social-icon-links"
               href={author.github}
               target="_blank"
               rel="noreferrer"
               title="github"
-              style={{ color: "black", paddingRight: "1em" }}
             >
               <FontAwesomeIcon icon={faGithub} size="1x" />
             </a>
             <a
+              className="social-icon-links"
               href={author.linkedin}
               target="_blank"
               rel="noreferrer"
               title="linkedin"
-              style={{ color: "black", paddingRight: "1em" }}
             >
               <FontAwesomeIcon icon={faLinkedinIn} size="1x" />
             </a>
             <a
+              className="social-icon-links"
               href={author.resume}
               target="_blank"
               rel="noreferrer"
               title="resume"
-              style={{ color: "black" }}
             >
               <FontAwesomeIcon icon={faFileAlt} size="1x" />
             </a>
