@@ -1,36 +1,22 @@
-<!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
-<p align="center">
-  <a href="https://gatsby-london.netlify.com">
-    <img alt="Gatsby" src="./content/assets/screenshot-desktop.jpg" />
-  </a>
-</p>
 
-<h1 align="center">
-  London by <a href="https://jamstack.studio">Jamstack Studio</a>
+![my-awesome-portfolio](https://github.com/susan8213/my-awesome-portfolio/assets/22584134/d34d5b37-01be-4efd-b81a-d5a0060fc134)
 
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-blog)
 
-</h1>
 
----
+This side project is more than just a personal blog; it's a dynamic platform crafted with JAMstack architecture and a static site generator. 
+
+Featuring an eye-catching card carousel showcasing the latest blog posts and beautifully designed tags for easy navigation. 
+
+For those less acquainted with markdown syntax or Git codebase structure, our blog seamlessly integrates with a third-party CMS, offering an intuitive interface for content creation and editing.
 
 A custom, image-centric theme for Gatsby. Made for publishers and portfolios with plenty of graphics to show off to the world. Completely free and fully responsive, released under the MIT license.
 
-**Based on [London](https://github.com/TryGhost/London) for Ghost**
+**#Gatsby.JS, #GraphQL, #NetlifyCMS, #Netlify**
 
-**Demo: https://gatsby-london.netlify.com**
+**Based on [London Template](https://github.com/TryGhost/London) (Demo: https://gatsby-london.netlify.com )for Ghost**
 
----
-<p align="center">
-  <a href="https://jamstack.studio">
-    <img alt="Jamstack Studio" src="https://raw.githubusercontent.com/ImedAdel/media/master/jamstack.studio_(Laptop%20with%20HiDPI%20screen).png" />
-  </a>
-</p>
-
----
-
-_I haven't really spent any time adding the JS animations or removing any unused CSS (automatically done by PurgeCSS). You will also need HTML in your Markdown file in order to add CSS classes to your images_
-
+**See Live: https://susan8213.netlify.app**
 ---
 
 _First time with Gatsby? Take a look on the [official and community-created starters](https://www.gatsbyjs.org/docs/gatsby-starters/)._
@@ -62,5 +48,3 @@ _First time with Gatsby? Take a look on the [official and community-created star
     _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql)._
 
     Open the `my-blog-starter` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
-
-<!-- AUTO-GENERATED-CONTENT:END -->
